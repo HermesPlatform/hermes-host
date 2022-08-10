@@ -43,6 +43,15 @@ function initialize() {
         conn = c;
         console.log("Connected to: " + conn.peer);
         status.innerHTML = "Connected";
+
+        // send keypresses and mouse movement
+        document.addEventListener('keydown', event => {
+            conn.send(event.key);
+        });
+        
+        document.addEventListener('mousemove', event => {
+            conn.send(event.clientX + " " + event.clientY);
+        });
     });
     peer.on('disconnected', function () {
         status.innerHTML = "Connection lost. Please reconnect";

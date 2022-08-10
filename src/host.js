@@ -4,6 +4,7 @@ var conn = null;
 var recvIdInput = document.getElementById("receiver-id");
 var status = document.getElementById("status");
 var connectButton = document.getElementById("connect-button");
+var textArea = document.getElementById("textbox");
 
 /**
  * Create the Peer object for our end of the connection.
@@ -82,7 +83,11 @@ function join() {
             audio: false
         }).then((stream) => {
             const call = peer.call(recvIdInput.value, stream);
-        }).catch((er) => { console.error(er); })
+        }).catch((er) => { console.error(er); });
+    });
+
+    conn.on('data', function (data) {
+        textArea.innerHTML += data;
     });
 
     conn.on('close', function () {
