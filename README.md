@@ -18,6 +18,15 @@ The Hermes host. Contains logic for peer to peer streaming of applications and g
 4) Then copy the id string.
 5) Open in another tab / browser / device (unfortunately on smartphone you cannot share screen in such way, so use a compatible device) the host.html. In this file paste the ID in the box and press connect. This would initiate the connection to the client and prompt you once that is done to share a tab, program or entire screen, choose one and the stream will appear on the client device.
 
+# File structure:
+src
+- client.js
+- host.js
+
+client.html
+
+host.html
+
 # To be included
 - Include the sandbox to prevent users from accessing other apps and private information
 - Port it to c++
