@@ -50,7 +50,7 @@ function initialize() {
         });
         
         document.addEventListener('mousemove', event => {
-            conn.send(event.clientX + " " + event.clientY);
+            conn.send(event.screenX + "," + event.screenY);
         });
     });
     peer.on('disconnected', function () {

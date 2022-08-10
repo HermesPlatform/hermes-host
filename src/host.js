@@ -87,6 +87,18 @@ function join() {
     });
 
     conn.on('data', function (data) {
+        if (data.length == 1) {
+            document.dispatchEvent(new KeyboardEvent('keydown', {
+                key: data
+            }));
+        }
+        else {
+            let arr = data.split(',');
+            document.dispatchEvent(new MouseEvent('mousedown', {
+                screenX: arr[0],
+                screenY: arr[1],
+            }))
+        }
         textArea.innerHTML += data;
     });
 
